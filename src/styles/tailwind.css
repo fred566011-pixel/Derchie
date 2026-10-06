@@ -1,0 +1,193 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #f8f9fc;
+  --foreground: #0f1729;
+  --primary: #1a3a6b;
+  --primary-foreground: #ffffff;
+  --secondary: #e8f0fe;
+  --secondary-foreground: #1a3a6b;
+  --accent: #f5a623;
+  --accent-foreground: #ffffff;
+  --muted: #eef1f8;
+  --muted-foreground: #64748b;
+  --card: #ffffff;
+  --card-foreground: #0f1729;
+  --border: #dde3f0;
+  --input: #dde3f0;
+  --ring: #1a3a6b;
+  --radius: 0.75rem;
+  --font-sans: var(--font-plus-jakarta-sans), sans-serif;
+  --success: #16a34a;
+  --success-bg: #f0fdf4;
+  --warning: #d97706;
+  --warning-bg: #fffbeb;
+  --danger: #dc2626;
+  --danger-bg: #fef2f2;
+  --gold: #f5a623;
+  --gold-light: #fef3dc;
+  --deep-blue: #1a3a6b;
+  --mid-blue: #2d5aa0;
+  --light-blue: #e8f0fe;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    border-color: var(--border);
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+  }
+}
+
+@layer utilities {
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .live-pulse {
+    animation: livePulse 2s ease-in-out infinite;
+  }
+
+  @keyframes livePulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.4); }
+    50% { box-shadow: 0 0 0 8px rgba(220, 38, 38, 0); }
+  }
+
+  .gold-pulse {
+    animation: goldPulse 2s ease-in-out infinite;
+  }
+
+  @keyframes goldPulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(245, 166, 35, 0.5); }
+    50% { box-shadow: 0 0 0 10px rgba(245, 166, 35, 0); }
+  }
+
+  .fade-in {
+    animation: fadeIn 0.3s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .slide-up {
+    animation: slideUp 0.25s ease-out;
+  }
+
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .skeleton-shimmer {
+    background: linear-gradient(90deg, var(--muted) 25%, var(--border) 50%, var(--muted) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+  }
+
+  @keyframes shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+
+  .hero-gradient {
+    background: linear-gradient(135deg, #0d2447 0%, #1a3a6b 50%, #2d5aa0 100%);
+  }
+
+  .card-hover {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .card-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(26, 58, 107, 0.12);
+  }
+
+  .btn-primary {
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+    transition: all 0.15s ease;
+  }
+
+  .btn-primary:hover {
+    background-color: var(--mid-blue);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(26, 58, 107, 0.3);
+  }
+
+  .btn-primary:active {
+    transform: scale(0.97);
+  }
+
+  .btn-gold {
+    background-color: var(--gold);
+    color: #ffffff;
+    transition: all 0.15s ease;
+  }
+
+  .btn-gold:hover {
+    background-color: #e8941a;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(245, 166, 35, 0.4);
+  }
+
+  .btn-gold:active {
+    transform: scale(0.97);
+  }
+
+  .nav-link-active {
+    color: var(--gold);
+    font-weight: 600;
+  }
+
+  .status-approved {
+    background-color: var(--success-bg);
+    color: var(--success);
+  }
+
+  .status-pending {
+    background-color: var(--warning-bg);
+    color: var(--warning);
+  }
+
+  .status-rejected {
+    background-color: var(--danger-bg);
+    color: var(--danger);
+  }
+
+  .status-live {
+    background-color: #fef2f2;
+    color: #dc2626;
+  }
+
+  .status-upcoming {
+    background-color: var(--light-blue);
+    color: var(--primary);
+  }
+
+  .status-completed {
+    background-color: var(--muted);
+    color: var(--muted-foreground);
+  }
+}
